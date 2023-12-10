@@ -1,0 +1,11 @@
+.payment-list {
+  font-family: "roboto";
+  font-weight: 500;
+  color: #3e4c59;
+}
+.payment-container {
+  border: 1px solid #0967d2;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}

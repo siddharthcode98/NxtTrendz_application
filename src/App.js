@@ -15,6 +15,7 @@ import "./App.css";
 class App extends Component {
   state = {
     cartList: [],
+    paymentOption: "",
   };
 
   //   TODO: Add your code for remove all cart items, increment cart item quantity, decrement cart item quantity, remove cart item
@@ -73,19 +74,24 @@ class App extends Component {
       cartList: prevState.cartList.filter((eachItem) => eachItem.id !== id),
     }));
   };
+  confirmOrder = (option) => {
+    this.setState({ paymentOption: option });
+  };
 
   render() {
-    const { cartList } = this.state;
+    const { cartList, paymentOption } = this.state;
 
     return (
       <CartContext.Provider
         value={{
           cartList,
+          paymentOption,
           addCartItem: this.addCartItem,
           removeCartItem: this.removeCartItem,
           removeAllCartItems: this.removeAllCartItems,
           decrementCartItemQuantity: this.decrementCartItemQuantity,
           incrementCartItemQuantity: this.incrementCartItemQuantity,
+          confirmOrder: this.confirmOrder,
         }}
       >
         <Switch>
